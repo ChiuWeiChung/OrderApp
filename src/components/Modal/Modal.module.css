@@ -1,0 +1,15 @@
+.Modal{
+    position: fixed;
+    top: 50%;
+    z-index: 500;
+    left: 50%;
+    line-height: 2.5;
+    font-size: 2rem;
+    border-radius: 10px;
+    text-align: center;
+    height: 10%;
+    width: 45%;
+    background-color: white;
+    transform: translateX(-50%);
+    box-shadow: 0 1rem 2rem #00000042;;
+}

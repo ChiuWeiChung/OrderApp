@@ -1,0 +1,105 @@
+.Summary {
+    text-align: center;
+    width: 90%;
+    margin: 1rem auto;
+    background-color: #ededed;
+    padding: .5rem 1rem;
+    box-sizing: border-box;
+}
+
+.Order {
+    margin-bottom: 2rem;
+    padding: .5rem;
+    background-color: #d8deea;
+    display: flex;
+    border-radius: 5px;
+    font-size: 1.4rem;
+    box-shadow: 0 1rem 2rem #82828282;
+}
+
+.Items {
+    width: 50%;
+    border-right: 1px solid black;
+    margin-right: 5%;
+}
+
+.OrderDate {
+    margin-bottom: 1rem;
+    letter-spacing: .5px;
+}
+
+.Item {
+    display: flex;
+    justify-content: center;
+    margin: auto;
+}
+
+.Item div {
+    margin-right: 2rem;
+    width: 30%;
+}
+
+.Contact {
+    width: 45%;
+}
+
+.Contact__Header{
+    margin: 0 auto;
+}
+
+.Detail {
+    display: flex;
+    flex-direction: column;
+    transition: all .2s;
+}
+
+.Detail div {
+    margin-bottom: 1rem;
+}
+
+.Order_TotalPrice {
+    margin: 1rem;
+    font-weight: bold;
+    background-color: #3e3d3d;
+    color: white;
+    padding: 1rem;
+}
+
+.IconShow{
+    display: none;
+}
+
+@media (max-width:800px) {
+    .Order {
+        flex-direction: column;
+        margin-bottom: 4rem;
+    }
+    .Items, .Contact {
+        width: 100%;
+        border: none;
+        margin: 0 auto;
+    }
+
+    .Contact__Header{
+        cursor: pointer;
+    }
+    .Items {
+        border-bottom: 1px solid gray;
+    }
+    .Detail {
+        visibility: hidden;
+        opacity: 0;
+        height: 0;
+    }
+    .ShowDetail {
+        visibility: visible;
+        opacity: 1;
+        height: 12rem;
+    }
+
+    .IconShow{
+        display: inline-block;
+    }
+
+
+}

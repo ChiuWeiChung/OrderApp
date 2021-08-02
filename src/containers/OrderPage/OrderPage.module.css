@@ -1,0 +1,58 @@
+.Container{
+    position:relative;
+    display: flex;
+    flex-direction: column;
+    background-color: #f7f7f7;
+    min-height: 91vh;
+    
+}
+
+.List{
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    flex:1;
+    width: 100%;
+}
+
+/* 
+
+.Items{
+    width: 75vw;
+    margin-top: 2vh;
+    overflow-y: scroll;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.Item{
+    text-align: center;
+    margin: 5px 10px;
+    width: 20vw;
+    height: 20vw;
+}
+
+.Picture{
+    height: 80%;
+    border: 0.5px solid burlywood;
+
+}
+
+
+@media (max-width:490px) {
+    .Items{
+        justify-content: center;
+        width: 100vw;
+    }
+
+   .Cost{
+       display: none;
+   }
+
+   .Item{
+       width: 40vw;
+       height: 40vw;
+
+   }
+} */

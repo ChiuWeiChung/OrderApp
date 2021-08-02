@@ -1,0 +1,43 @@
+.Footer{
+    height: 8rem;
+    padding: 1rem;
+    width: 100%;
+    color: white;
+    box-sizing: border-box;
+    font-size: 1rem;
+    text-align: center;
+    background-color: rgb(68, 67, 67);
+}
+
+.Right{
+    font-weight: 700;
+}
+
+.Footer div{
+    margin:auto;
+}
+
+@media (max-width:1000px){
+    .Footer{
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+    }
+
+    .Footer div{
+        width: 60%;
+        min-height: 6rem;
+        text-align: center;
+        border:none;
+        border-bottom: 1px solid #9b9292;
+    }
+}
+/* 
+.Footer h4{
+    display: inline-block;
+}
+
+.Footer p {
+    display: inline-block;
+    margin-left: 2rem;
+} */

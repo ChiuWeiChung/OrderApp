@@ -1,0 +1,45 @@
+.ViewCart{
+    position: fixed;
+    width: 75vw;
+    background-color: #4c4d4ded;
+    border-radius: 100px;
+    text-align: center;
+    padding: 1rem;
+    font-size: 2rem;
+    bottom: 2vh;
+    cursor: pointer;
+    color: #fff;
+    right: 50%;
+    transform: translateX(50%);
+    display: none;
+    transition: all .2s ;
+}
+
+.ViewCart:active{
+    transform:translateX(50%) scale(.9);
+}
+
+@media (max-width:800px) {
+    .ViewCart{
+        display: block;
+    }
+
+    .Content {
+        display: inline-block;
+    }
+
+    .Content i span{
+        margin-left: 1rem;
+    }
+
+    .Number{
+        display: inline-block;
+        border-radius: 50%;
+        background-color: #fc6514;
+        width: 3rem;
+        height: 3rem;
+        /* text-align: center; */
+        line-height: 1.3;
+        transform: translate(-3px, -10px);
+    }
+}

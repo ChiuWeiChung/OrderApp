@@ -1,0 +1,105 @@
+.Container{
+    position:relative;
+    display: flex;
+    flex-direction: column;   
+    margin-bottom: 1rem;
+}
+
+.Checkout{
+    display: flex;
+    margin: 1rem auto;
+    margin-bottom: auto;
+    text-align: center;
+    width: 85%;
+    padding: 5rem 0;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    background-image:linear-gradient(100deg, #4e4e4e 50%, rgb(221 221 221 / 79%) 50%, rgb(180 174 158 / 79%) 100%), url(../../img//food-2.jpg);
+    background-size: cover;
+}
+
+.Checkout__ItemList{
+    width: 50%;
+    margin: 1rem auto;
+    color: white;
+    display: flex;
+    align-items: center;
+    overflow-y: auto;
+    box-sizing: border-box;
+    flex-direction: column;
+}
+
+.Checkout__Items{
+    margin-bottom: auto;
+    width: 90%;
+}
+
+.Item__Name{
+    width: 40%;
+}
+
+.Checkout__ItemList .Item{
+    text-align: left;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 80%;
+    font-size: 1.6rem;
+    margin: .5rem auto;
+}
+
+.Checkout__TotalPrice {
+    padding-top:1rem;
+    width: 80%;
+    border-top: 3px solid lightgray;
+}
+
+.CheckButton{
+    font-size: 2rem;
+    border-radius: 1rem;
+    margin: 2rem auto;
+    width: 10rem;
+    cursor: pointer;
+    color: white;
+    background-color: rgb(55, 180, 221);
+    transition: all .2s;
+}
+
+.CheckButton:hover{
+    transform: scale(1.1) translateY(-1px);
+    box-shadow: 0px 2px 5px rgba(84 83 83);
+}
+
+.CheckButton:active{
+    transform: scale(1) translateY(0);
+    box-shadow: 0px 1px 2px rgba(84 83 83);
+}
+
+
+.Line{
+    margin: auto;
+    width: 40%;
+    height: 1px;
+    background-color: black;
+}
+
+
+@media (max-width:800px){
+    .Checkout{
+        flex-direction:column;
+        width: 100%;
+        background-image: none;
+        /* height: 80vh; */
+    }
+
+    .Checkout__ItemList{
+        width: 80%;
+        padding: 1rem;
+        border-bottom: 1px solid black;
+        border-radius: 5px;
+        background-color: #333;
+        overflow-y: visible;
+    }
+    
+}

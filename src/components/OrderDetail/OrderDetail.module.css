@@ -1,0 +1,94 @@
+.Detail {
+    width: 27%;
+    height: 60vh;
+    top: 12rem;
+    left: -25vw;
+    border-radius: 5px;
+    position: fixed;
+    font-size: 2rem;
+    font-weight: 700;
+    opacity: 0;
+    z-index: 9999;
+    color: white;
+    text-align: center;
+    transition: all .2s ease-in-out;
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.Show {
+    left:0;
+    opacity:1 ;
+}
+
+.Button__Success, .Button__Danger {
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    color: white;
+    margin: auto 1rem;
+    font-weight: 700;
+    padding: 1rem;
+    border: none;
+    border-radius: 3px;
+    height: 4rem;
+    transition: all .2s ease-in-out;
+    cursor: pointer;
+}
+
+.Button__Success{
+    background-color: #6464e1;
+}
+.Button__Danger{
+    background-color: #f17878;
+}
+
+.Button__Success:hover, .Button__Danger:hover{
+    transform: scale(1.1);
+    box-shadow: 1px 1px 5px #777;
+}
+
+.Button__Success:active, .Button__Danger:active{
+    transform: translateY(2px);
+}
+
+.MinusIcon, .PlusIcon {
+    color: white;
+}
+
+.Disabled{
+    color: gray;
+}
+
+.Selector {
+    display: flex;
+    justify-content: space-evenly;
+    width: 75%;
+}
+
+.Selector div{
+    margin: 10px 2px;
+}
+
+@media (max-width:800px) {
+    .Detail {
+        width: 80%;
+        min-width: 30rem;
+        left: 50%;
+        top:50%;
+        transform: translate(-50%,-50%);
+        box-shadow: 0 2rem 4rem #00000080;
+        visibility: hidden;
+        font-size: 3rem;
+
+    }
+    .Show {
+        visibility: visible;
+        height: 60vh;
+        z-index: 9999;
+    }
+}

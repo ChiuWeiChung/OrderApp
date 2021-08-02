@@ -1,0 +1,12 @@
+.ContactData{
+    width: 50%;
+    border-radius: 1rem;
+}
+
+@media (max-width:800px){
+    .ContactData{
+        width: 80%;
+        margin: 0 auto;
+    }
+
+}

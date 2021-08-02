@@ -1,25 +1,78 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import Navbar from './components/Navbar/Navbar';
+import OrderPage from './containers/OrderPage/OrderPage';
+import CheckoutPage from './containers/CheckoutPage/CheckoutPage';
+import AuthPage from './containers/AuthPage/AuthPage';
+import SummaryPage from './containers/SummaryPage/SummaryPage';
+import Footer from './components/Footer/Footer';
+import { clientId } from './hoc/clientId';
+import { connect } from 'react-redux';
+import { navToggler, setAuthRedirect, logout, authCheckState, getAuth } from './store/actions/index'
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+import { Switch, Route, Redirect } from 'react-router-dom';
+class App extends React.Component {
+    componentDidMount() {
+        window.gapi.load("client:auth2", () => {
+            window.gapi.client.init({
+                clientId: clientId,
+                scope: "email"
+            }).then(() => {
+                this.gAuth = window.gapi.auth2.getAuthInstance();
+                this.props.getAuth(this.gAuth);
+            }).then(() => {
+                this.props.authCheckState();
+            })
+        })
+    }
+
+    render() {
+
+        let route = (
+            <Switch>
+                <Route path="/auth" component={AuthPage} />
+                <Route path="/" component={OrderPage} />
+                <Redirect to="/" />
+            </Switch>
+        )
+
+        if (this.props.auth.token) {
+            route = (
+                <Switch>
+                    <Route path="/checkout" component={CheckoutPage} />
+                    <Route path="/summary" component={SummaryPage} />
+                    <Route path="/" component={OrderPage} />
+                    <Redirect to="/" />
+                </Switch>
+            )
+        }
+
+        return (
+            <div>
+                <Navbar setAuthRedirect={this.props.setAuthRedirect} auth={this.props.auth} logout={this.props.logout} toggler={this.props.navToggler} showNavbar={this.props.showNavbar} cart={this.props.cart} />
+                {route}
+                <Footer />
+            </div>
+        )
+    }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+    return {
+        auth: state.auth,
+        showNavbar: state.fetch.showNavbar
+    }
+}
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        navToggler: () => dispatch(navToggler()),
+        setAuthRedirect: () => dispatch(setAuthRedirect('/')),
+        logout: () => dispatch(logout()),
+        getAuth: (auth) => dispatch(getAuth(auth)),
+        authCheckState: () => dispatch(authCheckState())
+    }
+}
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

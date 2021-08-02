@@ -1,0 +1,49 @@
+.Hamburger__Container {
+    cursor: pointer;
+    margin: 0 3rem;
+    display: none;
+    transition: all .3s;
+}
+
+.Hamburger {
+    width: 4rem;
+    position: relative;
+    height: 100%;
+    transform: translateY(50%);
+    margin: 2.5rem 0;
+    height: 2px;
+    background-color: black;
+}
+
+.Hamburger::before, .Hamburger::after {
+    content: "";
+    width: 4rem;
+    position: absolute;
+    height: 2px;
+    background-color: black;
+}
+
+.Hamburger::before {
+    top: -10px;
+}
+
+.Hamburger::after {
+    top: 10px;
+}
+
+/* .Hamburger .Top::before {
+    transform: translateY(-10px);
+}
+
+.Hamburger .Bot::before {
+    transform: translateY(10px);
+} */
+
+@media (max-width:500px) {
+    .Hamburger__Container {
+        display: block;
+    }
+    .Hamburger__Container:active {
+        transform: scale(.6);
+    }
+}
