@@ -3,7 +3,6 @@ const initialState = {
     token: null,
     userId: null,
     userName: null,
-    getAuth:null,
     authRedirect: '/',
     loading: false,
     error: null
@@ -12,8 +11,6 @@ const initialState = {
 
 const reducer = (state = initialState, action) => {
     switch (action.type) {
-        case ('GETAUTH'):
-            return { ...state, getAuth: action.auth }
         case ('START_AUTH'):
             return { ...state, loading: true }
         case ('AUTH_SUCCESS'):

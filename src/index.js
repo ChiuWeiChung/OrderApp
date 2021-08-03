@@ -7,26 +7,23 @@ import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
 import { Provider } from 'react-redux';
 import thunk from 'redux-thunk';
 
-
 import orderReducer from './store/reducers/orderReducer';
 import authReducer from './store/reducers/authReducer';
-// import navReducer from './store/reducers/navReducer';
 import fetchReducer from './store/reducers/fetchReducer';
 
 
 const rootReducer = combineReducers({
     order:orderReducer,
     auth:authReducer,
-    // nav:navReducer,
     fetch:fetchReducer
 })
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = process.env.NODE_ENV === 'development' ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ : null || compose;
 
 const store = createStore(rootReducer,composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter>
+        <BrowserRouter basename={process.env.PUBLIC_URL}>
             <App />
         </BrowserRouter>
     </Provider>,

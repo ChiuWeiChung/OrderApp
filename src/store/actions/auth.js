@@ -2,13 +2,6 @@ import axios from 'axios';
 import { apiKey } from '../../hoc/apiKey';
 
 
-export const getAuth = (auth) => {
-    return {
-        type: 'GETAUTH',
-        auth
-    }
-}
-
 export const setAuthRedirect = (path) => {
     return {
         type: 'SET_AUTH_REDIRECT',
@@ -41,7 +34,7 @@ export const logout = () => {
         localStorage.removeItem('userId');
         localStorage.removeItem('userName');
         localStorage.removeItem('method');
-        if (getState().auth.type === 'GOOGLE') getState().auth.getAuth.signOut();
+        if (getState().auth.type === 'GOOGLE') window.gapi.auth2.getAuthInstance().signOut();
         dispatch({ type: 'LOGOUT' });
     }
 }
@@ -85,7 +78,7 @@ export const sign = (method, email, password, forSignIn) => {
         if (method === 'GOOGLE') {
             // ======Google Login Method======
             let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithIdp?key=${apiKey}`;
-            const res = await getState().auth.getAuth.signIn();
+            const res = await window.gapi.auth2.getAuthInstance().signIn();
             const obj = {
                 requestUri: "http://localhost",
                 postBody: `id_token=${res.getAuthResponse().id_token}&providerId=google.com`,

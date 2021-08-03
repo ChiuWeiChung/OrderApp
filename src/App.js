@@ -7,7 +7,7 @@ import SummaryPage from './containers/SummaryPage/SummaryPage';
 import Footer from './components/Footer/Footer';
 import { clientId } from './hoc/clientId';
 import { connect } from 'react-redux';
-import { navToggler, setAuthRedirect, logout, authCheckState, getAuth } from './store/actions/index'
+import { navToggler, setAuthRedirect, logout, authCheckState } from './store/actions/index'
 
 
 import { Switch, Route, Redirect } from 'react-router-dom';
@@ -18,9 +18,6 @@ class App extends React.Component {
                 clientId: clientId,
                 scope: "email"
             }).then(() => {
-                this.gAuth = window.gapi.auth2.getAuthInstance();
-                this.props.getAuth(this.gAuth);
-            }).then(() => {
                 this.props.authCheckState();
             })
         })
@@ -30,22 +27,24 @@ class App extends React.Component {
 
         let route = (
             <Switch>
+                <Route path="/checkout" component={CheckoutPage} />
+                <Route path="/summary" component={SummaryPage} />
                 <Route path="/auth" component={AuthPage} />
                 <Route path="/" component={OrderPage} />
                 <Redirect to="/" />
             </Switch>
         )
 
-        if (this.props.auth.token) {
-            route = (
-                <Switch>
-                    <Route path="/checkout" component={CheckoutPage} />
-                    <Route path="/summary" component={SummaryPage} />
-                    <Route path="/" component={OrderPage} />
-                    <Redirect to="/" />
-                </Switch>
-            )
-        }
+        // if (this.props.auth.token) {
+        //     route = (
+        //         <Switch>
+        //             <Route path="/checkout" component={CheckoutPage} />
+        //             <Route path="/summary" component={SummaryPage} />
+        //             <Route path="/" component={OrderPage} />
+        //             <Redirect to="/" />
+        //         </Switch>
+        //     )
+        // }
 
         return (
             <div>
@@ -69,7 +68,6 @@ const mapDispatchToProps = (dispatch) => {
         navToggler: () => dispatch(navToggler()),
         setAuthRedirect: () => dispatch(setAuthRedirect('/')),
         logout: () => dispatch(logout()),
-        getAuth: (auth) => dispatch(getAuth(auth)),
         authCheckState: () => dispatch(authCheckState())
     }
 }
