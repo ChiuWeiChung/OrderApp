@@ -4,8 +4,9 @@ import Button from '../../components/Button/Button';
 import classes from './AuthPage.module.css';
 import validator from 'validator';
 import Loader from '../../components/Loader/Loader';
+import Aux from '../../hoc/auxiliary';
 import { connect } from 'react-redux';
-import {  navToggler, setAuthRedirect, sign,initSpinner } from '../../store/actions/index'
+import { navToggler, setAuthRedirect, sign, initSpinner } from '../../store/actions/index'
 import { Redirect } from 'react-router-dom';
 
 
@@ -75,7 +76,6 @@ class AuthPage extends React.Component {
         this.setState({ orderForm: updatedOrderForm, formIsValid: !validState });
     }
 
-
     switch = () => {
         this.setState((prevState) => {
             return { forSignIn: !prevState.forSignIn }
@@ -84,7 +84,6 @@ class AuthPage extends React.Component {
 
     formOnSubmit = (event) => {
         event.preventDefault();
-        console.log('fire');
         this.props.sign('FIREBASE', this.state.orderForm.email.value, this.state.orderForm.password.value, this.state.forSignIn);
     }
 
@@ -115,20 +114,22 @@ class AuthPage extends React.Component {
             </form>
         );
 
-        if(this.props.auth.loading) form = <Loader></Loader>;
-
-        let authRedirect = this.props.auth.token ? <Redirect to={this.props.auth.authRedirect} /> : null
-
         return (
             <div className={classes.Auth}>
-                {authRedirect}
-                <h1>請輸入{this.state.forSignIn ? "登入" : "註冊"}資訊</h1>
-                {form}
-                {this.props.auth.error ? <p style={{ color: 'red', fontWeight: "bold" }}>{this.props.auth.error}</p> : null}
-                <div className={classes.Switch}>
-                    <Button btnType="Info" clicked={this.switch}>我要{this.state.forSignIn ? "註冊" : "登入"}</Button>
-                    <Button clicked={() => this.props.sign('GOOGLE')} btnType="Info" ><i className="fab fa-google"></i>Google登入</Button>
-                </div>
+                {this.props.auth.token ? <Redirect to={this.props.auth.authRedirect} /> : null}
+                {this.props.auth.loading ? <Loader /> :
+                    <Aux>
+                        <p className={classes.Hint}>Try Email: demo@demo.com and Password: demo123</p>
+                        <h1>請輸入{this.state.forSignIn ? "登入" : "註冊"}資訊 </h1>
+                        <div className={classes.AuthDetail}>Supported By Firebase Authentication</div>
+                        {form}
+                        {this.props.auth.error ? <p style={{ color: 'red', fontWeight: "bold" }}>{this.props.auth.error}</p> : null}
+                        <div className={classes.Switch}>
+                            <Button btnType="Black" clicked={this.switch}>我要{this.state.forSignIn ? "註冊" : "登入"}</Button>
+                            <Button btnType="Black" clicked={() => this.props.sign('GOOGLE')} ><i className="fab fa-google"></i>Google登入</Button>
+                        </div>
+                    </Aux>
+                }
             </div>
         )
     }
@@ -147,8 +148,7 @@ const mapDispatchToProps = (dispatch) => {
         navToggler: () => dispatch(navToggler()),
         setAuthRedirect: () => dispatch(setAuthRedirect('/')),
         sign: (type, email, pwd, forSignIn) => dispatch(sign(type, email, pwd, forSignIn)),
-        initSpinner:()=>dispatch(initSpinner())
+        initSpinner: () => dispatch(initSpinner())
     }
-
 }
 export default connect(mapStateToProps, mapDispatchToProps)(AuthPage)

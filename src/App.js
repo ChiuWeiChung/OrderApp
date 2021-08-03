@@ -27,24 +27,13 @@ class App extends React.Component {
 
         let route = (
             <Switch>
-                <Route path="/checkout" component={CheckoutPage} />
-                <Route path="/summary" component={SummaryPage} />
-                <Route path="/auth" component={AuthPage} />
-                <Route path="/" component={OrderPage} />
+                <Route exact path="/checkout" component={CheckoutPage} />
+                <Route exact path="/summary" component={SummaryPage} />
+                <Route exact path="/auth"  component={AuthPage} />
+                <Route path='/' component={OrderPage} />
                 <Redirect to="/" />
             </Switch>
         )
-
-        // if (this.props.auth.token) {
-        //     route = (
-        //         <Switch>
-        //             <Route path="/checkout" component={CheckoutPage} />
-        //             <Route path="/summary" component={SummaryPage} />
-        //             <Route path="/" component={OrderPage} />
-        //             <Redirect to="/" />
-        //         </Switch>
-        //     )
-        // }
 
         return (
             <div>

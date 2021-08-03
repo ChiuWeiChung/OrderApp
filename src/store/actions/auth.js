@@ -21,7 +21,7 @@ export const authSuccess = (method, idToken, userId, email) => {
 
 export const authFail = (error) => {
     return {
-        type: 'ERROR_FIREBASE',
+        type: 'AUTH_ERROR',
         error: error
     }
 }
@@ -67,18 +67,22 @@ const showSpinner = () => {
     return { type: 'START_AUTH' }
 }
 
-const closeSpinner = () => {
-    return { type: 'LOADING_FINISH' }
+const getProfile = (response) => {
+    return {
+        expiresIn: response.expiresIn * 1000,
+        userId: response.localId,
+        userName: response.firstName ? response.firstName : response.email,
+        token: response.idToken
+    }
 }
 
-
 export const sign = (method, email, password, forSignIn) => {
-    return async (dispatch, getState) => {
+    return async dispatch => {
         let profile = {};
-        if (method === 'GOOGLE') {
-            // ======Google Login Method======
+        if (method === 'GOOGLE') {// ======Google Login Method======
             let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithIdp?key=${apiKey}`;
-            const res = await window.gapi.auth2.getAuthInstance().signIn();
+            const res = await window.gapi.auth2.getAuthInstance().signIn()
+            if (res.getAuthResponse().id_token) dispatch(showSpinner());
             const obj = {
                 requestUri: "http://localhost",
                 postBody: `id_token=${res.getAuthResponse().id_token}&providerId=google.com`,
@@ -86,23 +90,15 @@ export const sign = (method, email, password, forSignIn) => {
                 returnSecureToken: true,
             };
             const authResponse = await axios.post(url, obj);
-            profile.expiresIn = authResponse.data.expiresIn * 1000;
-            profile.userId = authResponse.data.localId;
-            profile.userName = authResponse.data.firstName;
-            profile.token = authResponse.data.idToken;
-        } else {
-            // ======Firebase Login & SignUp Method======
-            dispatch(showSpinner());
+            profile = getProfile(authResponse.data)
+        } else {// ======Firebase Login & SignUp Method======
+            dispatch(showSpinner())
             const obj = { email, password, returnSecureToken: true };
             let url = `https://identitytoolkit.googleapis.com/v1/accounts:signInWithPassword?key=${apiKey}`;
             if (!forSignIn) url = `https://identitytoolkit.googleapis.com/v1/accounts:signUp?key=${apiKey}`;
             const res = await axiosPromise(url, obj);
-            dispatch(closeSpinner());
             if (res.errors) return dispatch(authFail(res.message))
-            profile.expiresIn = res.expiresIn * 1000;
-            profile.userId = res.localId;
-            profile.userName = res.email;
-            profile.token = res.idToken;
+            profile = getProfile(res)
         }
         saveLocalStorage(method, profile.expiresIn, profile.token, profile.userId, profile.userName);
         dispatch(checkAuthTimeout(profile.expiresIn / 1000));
@@ -110,7 +106,6 @@ export const sign = (method, email, password, forSignIn) => {
 
     }
 }
-
 
 export const authCheckState = () => {
     return (dispatch) => {

@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom';
 import App from './App';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import './index.css';
 
 import { createStore, compose, combineReducers, applyMiddleware } from 'redux';
@@ -23,9 +23,9 @@ const store = createStore(rootReducer,composeEnhancers(applyMiddleware(thunk)))
 
 ReactDOM.render(
     <Provider store={store}>
-        <BrowserRouter basename={process.env.PUBLIC_URL}>
+        <HashRouter  >
             <App />
-        </BrowserRouter>
+        </HashRouter>
     </Provider>,
     document.getElementById('root')
 )

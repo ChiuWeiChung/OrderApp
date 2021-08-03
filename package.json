@@ -2,7 +2,7 @@
   "name": "order-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://ChiuWeiChung.github.io/OrderPage",
+  "homepage": "https://ChiuWeiChung.github.io/OrderApp",
   "dependencies": {
     "@testing-library/jest-dom": "^5.13.0",
     "@testing-library/react": "^11.2.7",
