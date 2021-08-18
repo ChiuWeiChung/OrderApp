@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/OrderPage/static/css/main.ec3c40ae.chunk.css",
-    "main.js": "/OrderPage/static/js/main.41810856.chunk.js",
-    "main.js.map": "/OrderPage/static/js/main.41810856.chunk.js.map",
-    "runtime-main.js": "/OrderPage/static/js/runtime-main.0b023a03.js",
-    "runtime-main.js.map": "/OrderPage/static/js/runtime-main.0b023a03.js.map",
-    "static/js/2.ea787499.chunk.js": "/OrderPage/static/js/2.ea787499.chunk.js",
-    "static/js/2.ea787499.chunk.js.map": "/OrderPage/static/js/2.ea787499.chunk.js.map",
-    "index.html": "/OrderPage/index.html",
-    "static/css/main.ec3c40ae.chunk.css.map": "/OrderPage/static/css/main.ec3c40ae.chunk.css.map",
-    "static/js/2.ea787499.chunk.js.LICENSE.txt": "/OrderPage/static/js/2.ea787499.chunk.js.LICENSE.txt",
-    "static/media/CheckoutPage.module.css": "/OrderPage/static/media/food-2.b9b8ecf5.jpg"
+    "main.css": "/OrderApp/static/css/main.a4c6513d.chunk.css",
+    "main.js": "/OrderApp/static/js/main.d637c31d.chunk.js",
+    "main.js.map": "/OrderApp/static/js/main.d637c31d.chunk.js.map",
+    "runtime-main.js": "/OrderApp/static/js/runtime-main.e575cbd3.js",
+    "runtime-main.js.map": "/OrderApp/static/js/runtime-main.e575cbd3.js.map",
+    "static/js/2.ea787499.chunk.js": "/OrderApp/static/js/2.ea787499.chunk.js",
+    "static/js/2.ea787499.chunk.js.map": "/OrderApp/static/js/2.ea787499.chunk.js.map",
+    "index.html": "/OrderApp/index.html",
+    "static/css/main.a4c6513d.chunk.css.map": "/OrderApp/static/css/main.a4c6513d.chunk.css.map",
+    "static/js/2.ea787499.chunk.js.LICENSE.txt": "/OrderApp/static/js/2.ea787499.chunk.js.LICENSE.txt",
+    "static/media/CheckoutPage.module.css": "/OrderApp/static/media/food-2.b9b8ecf5.jpg"
   },
   "entrypoints": [
-    "static/js/runtime-main.0b023a03.js",
+    "static/js/runtime-main.e575cbd3.js",
     "static/js/2.ea787499.chunk.js",
-    "static/css/main.ec3c40ae.chunk.css",
-    "static/js/main.41810856.chunk.js"
+    "static/css/main.a4c6513d.chunk.css",
+    "static/js/main.d637c31d.chunk.js"
   ]
 }
