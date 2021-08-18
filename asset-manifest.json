@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/OrderApp/static/css/main.a4c6513d.chunk.css",
-    "main.js": "/OrderApp/static/js/main.d637c31d.chunk.js",
-    "main.js.map": "/OrderApp/static/js/main.d637c31d.chunk.js.map",
+    "main.js": "/OrderApp/static/js/main.0071e78c.chunk.js",
+    "main.js.map": "/OrderApp/static/js/main.0071e78c.chunk.js.map",
     "runtime-main.js": "/OrderApp/static/js/runtime-main.e575cbd3.js",
     "runtime-main.js.map": "/OrderApp/static/js/runtime-main.e575cbd3.js.map",
     "static/js/2.ea787499.chunk.js": "/OrderApp/static/js/2.ea787499.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.e575cbd3.js",
     "static/js/2.ea787499.chunk.js",
     "static/css/main.a4c6513d.chunk.css",
-    "static/js/main.d637c31d.chunk.js"
+    "static/js/main.0071e78c.chunk.js"
   ]
 }
