@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/OrderPage/static/css/main.7699dc00.chunk.css",
-    "main.js": "/OrderPage/static/js/main.1bb44993.chunk.js",
-    "main.js.map": "/OrderPage/static/js/main.1bb44993.chunk.js.map",
+    "main.css": "/OrderPage/static/css/main.ec3c40ae.chunk.css",
+    "main.js": "/OrderPage/static/js/main.41810856.chunk.js",
+    "main.js.map": "/OrderPage/static/js/main.41810856.chunk.js.map",
     "runtime-main.js": "/OrderPage/static/js/runtime-main.0b023a03.js",
     "runtime-main.js.map": "/OrderPage/static/js/runtime-main.0b023a03.js.map",
-    "static/js/2.f93b91be.chunk.js": "/OrderPage/static/js/2.f93b91be.chunk.js",
-    "static/js/2.f93b91be.chunk.js.map": "/OrderPage/static/js/2.f93b91be.chunk.js.map",
+    "static/js/2.ea787499.chunk.js": "/OrderPage/static/js/2.ea787499.chunk.js",
+    "static/js/2.ea787499.chunk.js.map": "/OrderPage/static/js/2.ea787499.chunk.js.map",
     "index.html": "/OrderPage/index.html",
-    "static/css/main.7699dc00.chunk.css.map": "/OrderPage/static/css/main.7699dc00.chunk.css.map",
-    "static/js/2.f93b91be.chunk.js.LICENSE.txt": "/OrderPage/static/js/2.f93b91be.chunk.js.LICENSE.txt",
+    "static/css/main.ec3c40ae.chunk.css.map": "/OrderPage/static/css/main.ec3c40ae.chunk.css.map",
+    "static/js/2.ea787499.chunk.js.LICENSE.txt": "/OrderPage/static/js/2.ea787499.chunk.js.LICENSE.txt",
     "static/media/CheckoutPage.module.css": "/OrderPage/static/media/food-2.b9b8ecf5.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.0b023a03.js",
-    "static/js/2.f93b91be.chunk.js",
-    "static/css/main.7699dc00.chunk.css",
-    "static/js/main.1bb44993.chunk.js"
+    "static/js/2.ea787499.chunk.js",
+    "static/css/main.ec3c40ae.chunk.css",
+    "static/js/main.41810856.chunk.js"
   ]
 }
