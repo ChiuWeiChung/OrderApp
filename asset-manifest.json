@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/OrderApp/static/css/main.a4c6513d.chunk.css",
-    "main.js": "/OrderApp/static/js/main.0071e78c.chunk.js",
-    "main.js.map": "/OrderApp/static/js/main.0071e78c.chunk.js.map",
+    "main.css": "/OrderApp/static/css/main.75459a3c.chunk.css",
+    "main.js": "/OrderApp/static/js/main.5a8aea93.chunk.js",
+    "main.js.map": "/OrderApp/static/js/main.5a8aea93.chunk.js.map",
     "runtime-main.js": "/OrderApp/static/js/runtime-main.e575cbd3.js",
     "runtime-main.js.map": "/OrderApp/static/js/runtime-main.e575cbd3.js.map",
     "static/js/2.ea787499.chunk.js": "/OrderApp/static/js/2.ea787499.chunk.js",
     "static/js/2.ea787499.chunk.js.map": "/OrderApp/static/js/2.ea787499.chunk.js.map",
     "index.html": "/OrderApp/index.html",
-    "static/css/main.a4c6513d.chunk.css.map": "/OrderApp/static/css/main.a4c6513d.chunk.css.map",
+    "static/css/main.75459a3c.chunk.css.map": "/OrderApp/static/css/main.75459a3c.chunk.css.map",
     "static/js/2.ea787499.chunk.js.LICENSE.txt": "/OrderApp/static/js/2.ea787499.chunk.js.LICENSE.txt",
     "static/media/CheckoutPage.module.css": "/OrderApp/static/media/food-2.b9b8ecf5.jpg"
   },
   "entrypoints": [
     "static/js/runtime-main.e575cbd3.js",
     "static/js/2.ea787499.chunk.js",
-    "static/css/main.a4c6513d.chunk.css",
-    "static/js/main.0071e78c.chunk.js"
+    "static/css/main.75459a3c.chunk.css",
+    "static/js/main.5a8aea93.chunk.js"
   ]
 }
